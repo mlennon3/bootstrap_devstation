@@ -77,7 +77,7 @@ nnoremap <LocalLeader>w :w<CR>
 :filetype plugin on
 
 "copy/paste system clipboard"
-"set clipboard=unnamed
+set clipboard=unnamed
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 filetype off
 filetype plugin indent off
@@ -92,8 +92,6 @@ vmap <C-d> y'>p
 "in normal mode
 nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>
-" .tpl files hold html
-autocmd BufNewFile,BufRead *.tpl set ft=html
 "use tidy html5 syntax checking
 let g:syntastic_html_tidy_exec = 'tidy5'
 

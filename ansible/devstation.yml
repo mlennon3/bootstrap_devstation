@@ -10,7 +10,9 @@
         - wget
         - vim
         - tmux
+        - ctags
         - brew-cask
+        - reattach-to-user-namespace
 
     - name: Install homebrew cask packages
       homebrew_cask: name={{ item }} state=present
@@ -27,17 +29,20 @@
         - cinch
 
     - name: install janus for vim
-      shell: curl -Lo- https://bit.ly/janus-bootstrap | bash
+      shell: curl -Lo- https://bit.ly/janus-bootstrap | bash creates=~/.vim.old/
+
+    - name: mkdir ~/.janus
+      shell: mkdir -p ~/.janus
 
     - name: install vim plugins
-      git: repo=https://github.com/{{ item }} dest=~/.janus accept_hostkey=true
+      shell: git clone https://github.com/{{ item.url }} chdir=~/.janus creates=~/.janus/{{ item.name  }}
       with_items:
-        - xolox/vim-misc
-        - christoomey/vim-tmux-navigator
-        - xolox/vim-easytags
+        - { url: 'xolox/vim-misc', name: 'vim-misc' }
+        - { url: 'christoomey/vim-tmux-navigator', name: 'vim-tmux-navigator' }
+        - { url: 'xolox/vim-easytags', name: 'vim-easytags' }
 
     - name: copy config files
-      copy: src={{ item }} dest=~/.{{ item }}
+      copy: src=files/{{ item }} dest=~/.{{ item }}
       with_items:
         - vimrc.after
         - tmux.conf
