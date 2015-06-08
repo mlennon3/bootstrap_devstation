@@ -1,0 +1,22 @@
+[user]
+	name = mlennon3@gmail.com
+	email = mlennon3@gmail.com
+[core]
+	autocrlf = input
+	editor = /usr/bin/vim
+	autoclrf = input
+	whitespace = cr-at-eol
+[merge]
+	tool = kdiff3
+[alias]
+  co = checkout
+  st = status
+  dc = diff --cached
+  cm = commit
+  lol = log --oneline
+  amend = commit --amend --no-edit
+  b = branch
+  lg = log --graph --pretty=format:'%Cred%h%Creset - %C(bold red)%an%Creset -%Creset(bold yellow)%d%Creset %s %C(bold green)(%cr)%Creset' --abbrev-commit --date=relative -20
+  ci = commit
+[push]
+	default = simple

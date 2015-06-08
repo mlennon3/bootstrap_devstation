@@ -1,0 +1,48 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - lineinfile: dest="~/.bash_profile" create=yes mode=644 line='export HOMEBREW_CASK_OPTS="--appdir=/Applications"'
+    - homebrew_tap: tap=caskroom/cask state=present
+    - name: Install homebrew packages
+      homebrew: name={{ item }} state=latest
+      with_items:
+        - wget
+        - vim
+        - tmux
+        - brew-cask
+
+    - name: Install homebrew cask packages
+      homebrew_cask: name={{ item }} state=present
+      environment:
+        HOMEBREW_CASK_OPTS: --appdir=/Applications
+      with_items:
+        - vagrant
+        - virtualbox
+        - iterm2
+        - alfred
+        - google-chrome
+        - firefox
+        - caffeine
+        - cinch
+
+    - name: install janus for vim
+      shell: curl -Lo- https://bit.ly/janus-bootstrap | bash
+
+    - name: install vim plugins
+      git: repo=ssh://git@github.com/{{ item }} dest=~/.janus
+      with_items:
+        - xolox/vim-misc
+        - christoomey/vim-tmux-navigator
+        - xolox/vim-easytags
+
+    - name: copy config files
+      copy: src={{ item }} dest=~/.{{ item }}
+      with_items:
+        - vimrc.after
+        - tmux.conf
+        - bash_profile
+        - gitconfig
+
+    - name: set vim as git editor
+      shell: 'git config --global core.editor /usr/bin/vim'
