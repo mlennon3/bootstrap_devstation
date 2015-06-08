@@ -30,7 +30,7 @@
       shell: curl -Lo- https://bit.ly/janus-bootstrap | bash
 
     - name: install vim plugins
-      git: repo=ssh://git@github.com/{{ item }} dest=~/.janus
+      git: repo=ssh://git@github.com/{{ item }} dest=~/.janus accept_hostkey=true
       with_items:
         - xolox/vim-misc
         - christoomey/vim-tmux-navigator
