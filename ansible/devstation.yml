@@ -30,7 +30,7 @@
       shell: curl -Lo- https://bit.ly/janus-bootstrap | bash
 
     - name: install vim plugins
-      git: repo=ssh://git@github.com/{{ item }} dest=~/.janus accept_hostkey=true
+      git: repo=https://github.com/{{ item }} dest=~/.janus accept_hostkey=true
       with_items:
         - xolox/vim-misc
         - christoomey/vim-tmux-navigator
@@ -46,3 +46,6 @@
 
     - name: set vim as git editor
       shell: 'git config --global core.editor /usr/bin/vim'
+
+    - name: make keyboard repeat fast
+      shell: defaults write NSGlobalDomain KeyRepeat -int 0
