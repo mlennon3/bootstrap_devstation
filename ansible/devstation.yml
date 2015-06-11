@@ -40,6 +40,11 @@
       args:
         executable: /bin/bash
 
+    - name: Install bundler
+      shell: "source ~/.bash_profile && gem install bundler"
+      args:
+        executable: /bin/bash
+
     - name: install janus for vim
       shell: curl -Lo- https://bit.ly/janus-bootstrap | bash creates=~/.vim.old/
 
