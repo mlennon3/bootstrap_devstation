@@ -32,6 +32,14 @@
     - name: Install vagrant berkshelf
       shell: vagrant plugin install vagrant-berkshelf
 
+    - name: Get RVM gpg key
+      shell: "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
+
+    - name: Install RVM
+      shell: curl -sSL https://get.rvm.io | bash -s stable creates="~/.rvm"
+      args:
+        executable: /bin/bash
+
     - name: install janus for vim
       shell: curl -Lo- https://bit.ly/janus-bootstrap | bash creates=~/.vim.old/
 
