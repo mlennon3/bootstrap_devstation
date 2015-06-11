@@ -32,16 +32,14 @@
     - name: Install vagrant berkshelf
       shell: vagrant plugin install vagrant-berkshelf
 
-    - name: Get RVM gpg key
-      shell: "gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3"
-
     - name: Install RVM
       shell: curl -sSL https://get.rvm.io | bash -s stable creates="~/.rvm"
       args:
         executable: /bin/bash
 
     - name: Install bundler
-      shell: "source ~/.bash_profile && gem install bundler"
+      shell: "gem install bundler"
+      sudo_user: root
       args:
         executable: /bin/bash
 
