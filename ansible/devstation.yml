@@ -27,6 +27,10 @@
         - firefox
         - caffeine
         - cinch
+        - chefdk
+
+    - name: Install vagrant berkshelf
+      shell: vagrant plugin install vagrant-berkshelf
 
     - name: install janus for vim
       shell: curl -Lo- https://bit.ly/janus-bootstrap | bash creates=~/.vim.old/
