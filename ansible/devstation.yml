@@ -7,6 +7,7 @@
     - name: Install homebrew packages
       homebrew: name={{ item }} state=latest
       with_items:
+        - git
         - wget
         - vim
         - tmux
@@ -55,6 +56,9 @@
         - { url: 'xolox/vim-misc', name: 'vim-misc' }
         - { url: 'christoomey/vim-tmux-navigator', name: 'vim-tmux-navigator' }
         - { url: 'xolox/vim-easytags', name: 'vim-easytags' }
+
+    - name: setup git completion
+      shell: curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash creates=~/.git-completion.bash
 
     - name: copy config files
       copy: src=files/{{ item }} dest=~/.{{ item }}
