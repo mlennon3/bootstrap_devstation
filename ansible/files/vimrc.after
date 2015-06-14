@@ -102,3 +102,7 @@ let g:easytags_async = 1
 let g:easytags_updatetime_min = 5000
 let g:easytags_auto_highlight = 0
 
+
+set scrolloff=4                 " Minimum lines to keep above and below cursor
+set splitright                  " Puts new vsplit windows to the right of the current
+set splitbelow                  " Puts new split windows to the bottom of the current
