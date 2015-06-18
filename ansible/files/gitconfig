@@ -13,7 +13,10 @@
   st = status
   dc = diff --cached
   cm = commit
+  lnm = log --no-merges
   lol = log --oneline
+  loln = log --oneline --no-merges
+  pr = pull --rebase
   amend = commit --amend --no-edit
   b = branch
   lg = log --graph --pretty=format:'%Cred%h%Creset - %C(bold red)%an%Creset -%Creset(bold yellow)%d%Creset %s %C(bold green)(%cr)%Creset' --abbrev-commit --date=relative -20
