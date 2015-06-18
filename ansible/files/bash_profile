@@ -30,6 +30,7 @@ alias  glol='git log --oneline'
 alias   gpr='git pull --rebase'
 alias gpull='git pull'
 alias ctags='/usr/local/bin/ctags'
+alias fix-sync ='rm .vagrant/machines/default/virtualbox/synced_folders'
 
 ## Git autocomplete
 if [ -f ~/.git-completion.bash ]; then
