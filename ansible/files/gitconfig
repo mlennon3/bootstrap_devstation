@@ -13,7 +13,7 @@
   st = status
   dc = diff --cached
   cm = commit
-  lnm = log --no-merges
+  logn = log --no-merges
   lol = log --oneline
   loln = log --oneline --no-merges
   pr = pull --rebase
