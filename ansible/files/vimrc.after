@@ -94,6 +94,7 @@ nmap <S-Enter> O<Esc>j
 nmap <CR> o<Esc>
 "use tidy html5 syntax checking
 let g:syntastic_html_tidy_exec = 'tidy5'
+let g:ackprg = 'ack -s -H --smart-case --nocolor --nogroup --column'
 
 "use exuberant ctags
 let g:easytags_cmd = '/usr/local/bin/ctags'
