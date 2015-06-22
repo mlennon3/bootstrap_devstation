@@ -30,6 +30,7 @@
         - caffeine
         - cinch
         - chefdk
+        - screenhero
 
     - name: Install vagrant berkshelf
       shell: vagrant plugin install vagrant-berkshelf
