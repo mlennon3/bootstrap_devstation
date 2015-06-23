@@ -16,6 +16,10 @@
         - brew-cask
         - reattach-to-user-namespace
 
+    - name: install java6 for webstorm
+      shell: brew cask install caskroom/homebrew-versions/java6
+      sudo_user: root
+
     - name: Install homebrew cask packages
       homebrew_cask: name={{ item }} state=present
       environment:
@@ -31,6 +35,10 @@
         - cinch
         - chefdk
         - screenhero
+        - webstorm
+        - java6
+        - hipchat
+        - flash-player
 
     - name: Install vagrant berkshelf
       shell: vagrant plugin install vagrant-berkshelf
