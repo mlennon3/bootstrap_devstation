@@ -45,7 +45,7 @@
         - vagrant-gatling-rsync
 
     - name: Install vagrant gatling rsync
-      shell: vagrant plugin install
+      shell: vagrant plugin install vagrant-gatling-rsync
 
     - name: Install RVM
       shell: curl -sSL https://get.rvm.io | bash -s stable creates="~/.rvm"
