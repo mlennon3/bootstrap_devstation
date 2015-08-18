@@ -70,6 +70,7 @@
         - { url: 'xolox/vim-misc', name: 'vim-misc' }
         - { url: 'christoomey/vim-tmux-navigator', name: 'vim-tmux-navigator' }
         - { url: 'xolox/vim-easytags', name: 'vim-easytags' }
+        - { url: 'git://github.com/chase/vim-ansible-yaml.git', name: 'vim-ansible-yaml' }
 
     - name: setup git completion
       shell: curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash creates=~/.git-completion.bash
