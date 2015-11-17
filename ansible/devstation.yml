@@ -11,6 +11,7 @@
         - wget
         - vim
         - ack
+	- rbenv
         - tmux
         - ctags
         - brew-cask
@@ -32,11 +33,8 @@
         - google-chrome
         - firefox
         - caffeine
-        - cinch
         - screenhero
-        - webstorm
         - java6
-        - hipchat
         - flash-player
 
     - name: Install vagrant plugins
@@ -46,11 +44,6 @@
 
     - name: Install vagrant gatling rsync
       shell: vagrant plugin install vagrant-gatling-rsync
-
-    - name: Install RVM
-      shell: curl -sSL https://get.rvm.io | bash -s stable creates="~/.rvm"
-      args:
-        executable: /bin/bash
 
     - name: Install bundler
       shell: "gem install bundler"
