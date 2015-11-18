@@ -10,4 +10,4 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
   brew install ansible
 fi
 
-ansible-playbook `pwd`/`dirname $0`/ansible/devstation.yml --ask-sudo-pass -i "127.0.0.1,"
+ansible-playbook -vvvv `pwd`/`dirname $0`/ansible/devstation.yml --ask-sudo-pass -i "127.0.0.1,"

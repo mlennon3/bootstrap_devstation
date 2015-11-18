@@ -9,9 +9,9 @@
       with_items:
         - git
         - wget
+        - rbenv
         - vim
         - ack
-	- rbenv
         - tmux
         - ctags
         - brew-cask
@@ -19,7 +19,6 @@
 
     - name: install java6 for webstorm
       shell: brew cask install caskroom/homebrew-versions/java6
-      sudo_user: root
 
     - name: Install homebrew cask packages
       homebrew_cask: name={{ item }} state=present
@@ -63,7 +62,7 @@
         - { url: 'xolox/vim-misc', name: 'vim-misc' }
         - { url: 'christoomey/vim-tmux-navigator', name: 'vim-tmux-navigator' }
         - { url: 'xolox/vim-easytags', name: 'vim-easytags' }
-        - { url: 'git://github.com/chase/vim-ansible-yaml.git', name: 'vim-ansible-yaml' }
+        - { url: 'chase/vim-ansible-yaml.git', name: 'vim-ansible-yaml' }
 
     - name: setup git completion
       shell: curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > ~/.git-completion.bash creates=~/.git-completion.bash
