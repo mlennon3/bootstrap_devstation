@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -exo pipefail
 
 if [[ ! -x /usr/local/bin/brew ]]; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -10,4 +10,4 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
   brew install ansible
 fi
 
-ansible-playbook -vvvv `pwd`/`dirname $0`/ansible/devstation.yml --ask-sudo-pass -i "127.0.0.1,"
+ansible-playbook -vvvv `pwd`/`dirname $0`/ansible/devstation.yml -i "127.0.0.1,"

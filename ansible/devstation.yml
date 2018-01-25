@@ -8,16 +8,24 @@
       homebrew: name={{ item }} state=latest
       with_items:
         - vim
-        - ack
         - tmux
         - ctags
+        - bash-completion
+        - fzf
+        - wget
+        - the_silver_searcher
+
+    - homebrew_tap: tap=homebrew/completions state=present
 
     - name: Install homebrew cask packages
       homebrew_cask: name={{ item }} state=present
+      ignore_errors: yes
       environment:
         HOMEBREW_CASK_OPTS: --appdir=/Applications
       with_items:
         - iterm2
+        - firefox
+        - google-chrome
 
     - name: install janus for vim
       shell: curl -Lo- https://bit.ly/janus-bootstrap | bash creates=~/.vim.old/
@@ -32,12 +40,15 @@
         - { url: 'christoomey/vim-tmux-navigator', name: 'vim-tmux-navigator' }
         - { url: 'xolox/vim-easytags', name: 'vim-easytags' }
         - { url: 'chase/vim-ansible-yaml.git', name: 'vim-ansible-yaml' }
+        - { url: 'w0rp/ale', name: 'ale' }
 
     - name: copy config files
       copy: src=files/{{ item }} dest=~/.{{ item }}
       with_items:
         - vimrc.after
+        - vimrc.before
         - tmux.conf
+        - gitconfig
 
     - name: set vim as git editor
       shell: 'git config --global core.editor /usr/bin/vim'

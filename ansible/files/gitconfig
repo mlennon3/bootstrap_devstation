@@ -1,0 +1,13 @@
+[alias]
+  co=checkout
+  ci=commit
+  pr=pull --rebase
+  amend=commit --amend --no-edit
+  dc=diff --cached
+  st=status
+  lol=log --oneline
+  b=branch
+
+[user]
+	name = Michael Lennon
+	email = mlennon@shoprunner.com
