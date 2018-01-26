@@ -49,6 +49,8 @@
         - vimrc.before
         - tmux.conf
         - gitconfig
+        - bash_profile
+        - bashrc
 
     - name: set vim as git editor
       shell: 'git config --global core.editor /usr/bin/vim'
